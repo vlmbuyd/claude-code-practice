@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dev Naming Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Dev Naming Generator</h1>
+      <p class="subtitle">맥락을 설명하면 최적의 변수명·함수명을 제안해드립니다</p>
+    </header>
+
+    <main>
+      <form id="form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="type">유형</label>
+            <select id="type" name="type">
+              <option value="변수">변수 (Variable)</option>
+              <option value="함수">함수 (Function)</option>
+              <option value="클래스">클래스 (Class)</option>
+              <option value="상수">상수 (Constant)</option>
+              <option value="인터페이스">인터페이스 (Interface)</option>
+              <option value="타입">타입 (Type)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="convention">네이밍 컨벤션</label>
+            <select id="convention" name="convention">
+              <option value="camelCase">camelCase</option>
+              <option value="PascalCase">PascalCase</option>
+              <option value="snake_case">snake_case</option>
+              <option value="SCREAMING_SNAKE_CASE">SCREAMING_SNAKE_CASE</option>
+              <option value="kebab-case">kebab-case</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="language">프로그래밍 언어</label>
+            <select id="language" name="language">
+              <option value="">언어 무관</option>
+              <option value="JavaScript">JavaScript</option>
+              <option value="TypeScript">TypeScript</option>
+              <option value="Python">Python</option>
+              <option value="Java">Java</option>
+              <option value="Kotlin">Kotlin</option>
+              <option value="Go">Go</option>
+              <option value="Rust">Rust</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="context">맥락 설명 <span class="required">*</span></label>
+          <textarea
+            id="context"
+            name="context"
+            placeholder="이 변수/함수가 어디서, 어떻게 사용되는지 설명해주세요.&#10;&#10;예시:&#10;- 사용자가 로그인할 때 입력한 이메일 주소를 저장하는 변수&#10;- 장바구니에 담긴 상품들의 총 금액을 계산하는 함수&#10;- 비동기로 API에서 사용자 목록을 가져와서 상태에 저장하는 함수"
+            rows="5"
+          ></textarea>
+        </div>
+
+        <button type="submit" id="submitBtn">
+          <span class="btn-text">네이밍 생성</span>
+          <span class="btn-spinner" hidden>생성 중...</span>
+        </button>
+      </form>
+
+      <section id="results" class="results" hidden>
+        <div class="results-header">
+          <h2>제안된 이름</h2>
+          <button id="copyAllBtn" class="copy-all-btn">전체 복사</button>
+        </div>
+        <div id="candidateList" class="candidate-list"></div>
+        <div id="streamingRaw" class="streaming-raw" hidden></div>
+      </section>
+
+      <div id="errorMsg" class="error-msg" hidden></div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
