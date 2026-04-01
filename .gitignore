@@ -1,0 +1,29 @@
+# =================================================================
+# Claude & Anthropic 도구 (Claude Code CLI, API 등)
+# =================================================================
+
+# 1. Claude Code CLI 개인 설정 및 로컬 상태
+# 팀과 공유하지 않는 사용자 본인만의 프롬프트 지시사항
+CLAUDE.local.md
+
+# 로컬 권한 설정 및 세션/실행 데이터
+.claude/settings.local.json
+.claude/plan/
+.claude_history
+
+# (선택) .claude 디렉토리 전체를 무시하되 팀 공통 설정만 추적(Commit)하고 싶다면 아래 주석 해제:
+# .claude/
+# !.claude/settings.json
+
+# 2. MCP (Model Context Protocol) 설정
+# 사용자 로컬 PC의 절대 경로가 포함될 수 있는 로컬 MCP 서버 설정
+.mcp.json
+.mcp.local.json
+
+# 3. API 키 및 환경 변수
+# ANTHROPIC_API_KEY 등 민감한 시크릿 키가 포함된 파일
+.env
+.env.local
+.env.*.local
+
+node_modules/
