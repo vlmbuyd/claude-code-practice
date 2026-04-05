@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -E \"\\\\.\\(js|ts|json|md|html\\)$\")",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(ls node_modules/inquirer/lib/*.d.ts)",
+      "Bash(npm remove:*)",
+      "Read(**)"
+    ]
+  }
+}
